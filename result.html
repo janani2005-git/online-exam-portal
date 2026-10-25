@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Result | ExamPortal</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eef2ff, #ddd6fe, #f5f3ff);
+            color: #312e81;
+        }
+
+        .card {
+            background: white;
+            max-width: 520px;
+            width: 100%;
+            padding: 40px 25px;
+            border-radius: 22px;
+            text-align: center;
+            box-shadow: 0 18px 50px rgba(79, 70, 229, 0.15);
+        }
+
+        .icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #312e81;
+            font-size: 22px;
+        }
+
+        .score {
+            background: #f5f3ff;
+            border: 1px solid #ddd6fe;
+            border-radius: 14px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 18px;
+        }
+
+        .percentage {
+            color: #4f46e5;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .links a {
+            display: block;
+            padding: 13px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            background: #4f46e5;
+        }
+
+        .links a:hover {
+            background: #3730a3;
+        }
+
+        .links a.secondary {
+            background: #eef2ff;
+            color: #4338ca;
+        }
+
+        .links a.secondary:hover {
+            background: #ddd6fe;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="icon">🏆</div>
+
+        <h1>Exam Result</h1>
+        <h2>Congratulations, {{ student_name }}!</h2>
+
+        <div class="score">
+            <p>Marks</p>
+            <strong>{{ marks }} / {{ total_marks }}</strong>
+        </div>
+
+        <div class="score">
+            <p>Percentage</p>
+            <div class="percentage">{{ percentage }}%</div>
+        </div>
+
+        <div class="links">
+            <a href="/exam">Try Again →</a>
+            <a href="/dashboard" class="secondary">Dashboard</a>
+            <a href="/history" class="secondary">View History</a>
+            <a href="/logout" class="secondary">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

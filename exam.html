@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam | ExamPortal</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 16px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eef2ff, #ddd6fe, #f5f3ff);
+            color: #312e81;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            margin-bottom: 8px;
+            color: #4338ca;
+        }
+
+        .header p {
+            color: #64748b;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            margin: auto;
+            max-width: 720px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(79, 70, 229, 0.12);
+        }
+
+        .question {
+            text-align: left;
+            margin: 20px 0;
+            padding: 20px;
+            background: #fafaff;
+            border: 1px solid #e0e7ff;
+            border-radius: 14px;
+        }
+
+        .question p {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.6;
+            margin-top: 0;
+        }
+
+        .question label {
+            display: block;
+            padding: 10px;
+            margin: 7px 0;
+            border-radius: 8px;
+            color: #475569;
+            cursor: pointer;
+        }
+
+        .question label:hover {
+            background: #eef2ff;
+        }
+
+        input[type="radio"] {
+            accent-color: #4f46e5;
+            margin-right: 8px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            background: #4f46e5;
+            color: white;
+            padding: 15px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3730a3;
+        }
+
+        @media (max-width: 480px) {
+            .box {
+                padding: 18px;
+            }
+
+            .question {
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>✦ ExamPortal</h1>
+        <p>Stay focused. Do your best!</p>
+    </div>
+
+    <div class="box">
+        <form method="POST">
+            {% for q in questions %}
+            <div class="question">
+                <p>{{ loop.index }}. {{ q.question }}</p>
+
+                <label>
+                    <input type="radio" name="{{ q.id }}" value="A" required>
+                    {{ q.option_a }}
+                </label>
+
+                <label>
+                    <input type="radio" name="{{ q.id }}" value="B">
+                    {{ q.option_b }}
+                </label>
+
+                <label>
+                    <input type="radio" name="{{ q.id }}" value="C">
+                    {{ q.option_c }}
+                </label>
+
+                <label>
+                    <input type="radio" name="{{ q.id }}" value="D">
+                    {{ q.option_d }}
+                </label>
+            </div>
+            {% endfor %}
+
+            <button type="submit">Submit Exam →</button>
+        </form>
+    </div>
+</body>
+</html>

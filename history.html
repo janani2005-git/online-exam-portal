@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam History</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            padding: 30px 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .table-container {
+            max-width: 1000px;
+            margin: auto;
+            overflow-x: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        th {
+            background: #6d28d9;
+            color: white;
+        }
+
+        tr:hover td {
+            background: #f5f3ff;
+        }
+
+        .back-link {
+            display: block;
+            width: fit-content;
+            margin: 25px auto 0;
+            padding: 12px 24px;
+            background: white;
+            color: #6d28d9;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+        }
+
+        .back-link:hover {
+            background: #ede9fe;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>📚 My Exam History</h1>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Subject</th>
+                <th>Marks</th>
+                <th>Percentage</th>
+                <th>Status</th>
+                <th>Date & Time</th>
+            </tr>
+
+            {% for result in results %}
+            <tr>
+                <td>{{ result.subject }}</td>
+                <td>{{ result.marks }}/{{ result.total_marks }}</td>
+                <td>{{ result.percentage }}%</td>
+                <td>{{ result.status }}</td>
+                <td>{{ result.exam_date }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5">No exam history available.</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <a href="/dashboard" class="back-link">← Back to Dashboard</a>
+</body>
+</html>

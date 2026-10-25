@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: #5b4baf;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #6654d9;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4937b8;
+}
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #eeeaff;
+    color: #4937b8;
+    font-size: 20px;
+    font-weight: bold;
+}
+document.getElementById("result").innerHTML =
+    "<div class='result-card'>" +
+    "<h2>Exam Completed!</h2>" +
+    "<p>Total Marks: " + score + " / 3</p>" +
+    "<p>Percentage: " + percentage + "%</p>" +
+    "<h3>" + status + "</h3>" +
+    "<button onclick='location.reload()'>Retake Exam</button>" +
+    "</div>";
+    .result-card {
+    background: #f3f0ff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    color: #4937b8;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.result-card h2 {
+    margin-bottom: 15px;
+}
+
+.result-card p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.result-card button {
+    margin-top: 10px;
+}

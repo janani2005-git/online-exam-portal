@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f4ff;
+            color: #222;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 15px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 12px #00000012;
+        }
+
+        .card h2 {
+            color: #5b4bea;
+            font-size: 30px;
+            margin: 10px 0;
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        a {
+            display: inline-block;
+            background: #5b4bea;
+            color: white;
+            padding: 12px 20px;
+            margin: 8px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        @media (max-width: 500px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Student Dashboard</h1>
+        <p>Welcome, {{ student_name }}!</p>
+    </header>
+
+    <div class="container">
+        <div class="cards">
+            <div class="card">
+                <p>Total Exams Attended</p>
+                <h2>{{ total_exams }}</h2>
+            </div>
+
+            <div class="card">
+                <p>Average Percentage</p>
+                <h2>{{ average_percentage }}%</h2>
+            </div>
+
+            <div class="card">
+                <p>Passed Exams</p>
+                <h2>{{ pass_count }}</h2>
+            </div>
+
+            <div class="card">
+                <p>Failed Exams</p>
+                <h2>{{ fail_count }}</h2>
+            </div>
+        </div>
+
+        <div class="links">
+            <a href="/exam">Take Exam</a>
+            <a href="/history">View Exam History</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+</body>
+</html>
